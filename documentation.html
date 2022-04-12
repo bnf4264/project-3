@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Aim Trainer!</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script defer
+        src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.6.0/webcomponents-loader.min.js"></script>
+    <script type="module" src="src/loader.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/default-styles.css"/>
+</head>
+
+<body>
+    <navigation-bar active="home" breakpoint="576">
+        <!-- <img slot="brand" src="images/ticket2.png" style="max-height: 45px"> -->
+        <a href="./about.html">About</a>
+        <a href="./app.html">App</a>
+        <a href="./documentation.html">Documentation</a>
+    </navigation-bar>
+
+    <!-- breadcrumbs -->
+
+
+    <!-- Product Info -->
+
+    <div class="hero is-fullheight is-info p-2">
+        <div class="hero-head">
+            <app-header class="title"></app-header>
+            <p class="subtitle">
+                
+            </p>
+        </div>
+        <div class="columns is-vcentered">
+            <p style="word-wrap: break-word; margin-left: 20; margin-right: 20; margin-top: 20;">Documentation goes here. Make sure to say how many stack overflow people saved your ass</p>
+            <!-- <img src=""> put an image or a logo here? maybe? idek-->
+        </div>
+        <div class="hero-footer"></div> <!-- Although I am not using this for my footer right now, in order to have a full height hero I need this -->
+    </div>
+    <app-footer></app-footer>
+
+    <script src="src/app-navbar.js"></script>
+</body>
+
+</html>

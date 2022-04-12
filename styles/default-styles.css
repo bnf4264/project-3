@@ -1,0 +1,42 @@
+.is-active{
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#poster{
+    max-width: 150px;
+}
+
+#test img{
+    padding-bottom: 30px;
+}
+
+#test p{
+    padding-bottom: 30px;
+}
+
+#doc-list h2{
+    padding-top: 25px;
+}
+
+#results{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+app-card{
+    padding: 2rem;
+}
+
+favorite-card{
+    padding: 2rem;
+}
+
+.input{
+    width: 20%;
+}
+
+.secondary-input{
+    padding-top: 1rem;
+}
