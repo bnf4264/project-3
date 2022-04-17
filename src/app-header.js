@@ -25,7 +25,7 @@ class AppHeader extends HTMLElement{
     }
 
     render(){
-        const title = this.getAttribute('data-title') ? this.getAttribute('data-title') : "Cool Aim Trainer";
+        const title = this.getAttribute('data-title') ? this.getAttribute('data-title') : "AimTrain";
 
         this.shadowRoot.querySelector("p").innerHTML = title;
     }
