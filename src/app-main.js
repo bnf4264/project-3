@@ -12,9 +12,16 @@ let percentAccuracy;
 let totalClicks = 0;
 let targets = [];
 
+// Audio variables
+let audioSelect = document.querySelector("#audio-select");
+let currentAudio = new Audio('./audio/shotgun.mp4');
+let shotgunAudio = new Audio('./audio/shotgun.mp4');
+let laserAudio = new Audio('./audio/laser.mp4');
+let alakablamAudio = new Audio('./audio/alakablam.mp4');
+
 window.onload = init;
 function init(){
-    
+    //console.log("difficulty:", difficulty);
     canvas = document.querySelector('canvas');
     const resize = () => {
         canvas.width = window.innerWidth;
@@ -44,6 +51,11 @@ function update(){
     ctx.font = '48px serif';
     ctx.fillText('Targets Hit: ' + targetsHit, 10, 50);
     ctx.fillText('Accuracy: ' + Math.trunc(targetsHit/totalClicks * 100) + '%', 10, 90);
+
+    audioSelect.onchange = e => {
+        console.log(e.target.value);
+        currentAudio = new Audio(`./${e.target.value}`);
+    }
 }
 
 function setupUI(){
@@ -53,11 +65,11 @@ function setupUI(){
 function createTarget(){
     newTargetX = getRandom(50, canvas.width - 50);
     newTargetY = getRandom(50, canvas.height - 50);
-    let target = new Target(newTargetX, newTargetY, targetRadius);
+    let target = new Target(newTargetX, newTargetY, getRandom(10,30));
     targets.push(target);
     console.log("new target");
     console.log("Target X: " + newTargetX + " Target Y: " + newTargetY);
-}
+} 
 
 function drawTargets(){
     for(let i = targets.length - 1; i >= 0; --i)
@@ -80,6 +92,10 @@ function clearCanvas(){
 }
 
 function doMousedown(e){
+    //shotgunAudio.play();
+    //laserAudio.play();
+    //alakablamAudio.play();
+    currentAudio.play();
     totalClicks++;
     console.log(e);
     let mouse = getMouse(e);
@@ -89,6 +105,7 @@ function doMousedown(e){
         let t = targets[i];
         if(t.containsPoint(mouse)){
             console.log("target hit");
+            // shotgunAudio.play();
             targetsHit++;
             // remove target from target array
             targets.splice(i,1);
