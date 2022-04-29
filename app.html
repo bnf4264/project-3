@@ -32,7 +32,7 @@
 
     <!-- Product Info -->
 
-    <div class="hero is-fullheight is-info p-2">
+    <div class="hero is-info p-2">
         <div class="hero-head">
             <app-header class="title"></app-header>
             <p class="subtitle">
@@ -61,19 +61,42 @@
             </label>
         </div> -->
 
-        <label>Click Sound:
-            <select id="audio-select">
-                <option value="audio/laser.mp4" selected>Laser</option>
-                <option value="audio/alakablam.mp4" selected>Alakablam</option>
-                <option value="audio/shotgun.mp4" selected>Gun</option>
-            </select>
-        </label>
 
 
-        <div class="hero-footer"></div>
-        <!-- Although I am not using this for my footer right now, in order to have a full height hero I need this -->
+        <!-- <button id="fsButton">Full Screen</button> -->
     </div>
-    <canvas width="600" height="400">
+    <!-- end of hero -->
+    <p>Click Sound</p>
+    <div class="select is-normal">
+        <select id="audio-select">
+            <option value="audio/laser.mp4">Laser</option>
+            <option value="audio/alakablam.mp4">Alakablam</option>
+            <option value="audio/shotgun.mp4">Gun</option>
+        </select>
+    </div>
+
+    <p>Difficulty</p>
+    <div class="select is-normal">
+        <select id="difficulty-select">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+
+    <p>Target Color</p>
+    <div class="select is-normal">
+        <select id="color-select">
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="black">Black</option>
+            <option value="orange">Orange</option>
+            <option value="purple">Purple</option>
+        </select>
+    </div>
+
+    <canvas id="canvas" width="600" height="400">
         Get a real browser!
     </canvas>
 

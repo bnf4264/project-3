@@ -36,10 +36,14 @@ body {
     flex-wrap: wrap;
 }
 
-.input{
+#canvas{
+    background-color: lightgray;
+}
+
+/* .input{
     width: 20%;
 }
 
 .secondary-input{
     padding-top: 1rem;
-}
+} */

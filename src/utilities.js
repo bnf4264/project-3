@@ -1,4 +1,4 @@
-export {getMouse, getRandom};
+export {getMouse, getRandom, goFullscreen};
 
 function getRandom(min, max) {
 	return Math.random() * (max - min) + min;
@@ -11,3 +11,17 @@ function getMouse(e){
 	mouse.y = e.pageY - e.target.offsetTop;
 	return mouse;
 }
+
+const goFullscreen = (element) => {
+	console.log(element);
+	if (element.requestFullScreen) {
+		element.requestFullScreen();
+	} else if (element.mozRequestFullScreen) {
+		element.mozRequestFullScreen();
+	} else if (element.mozRequestFullScreen) { // camel-cased 'S' was changed to 's' in spec
+		element.mozRequestFullScreen();
+	} else if (element.webkitRequestFullScreen) {
+		element.webkitRequestFullScreen();
+	}
+	// .. and do nothing if the method is not supported
+};
