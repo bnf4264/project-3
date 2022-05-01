@@ -16,6 +16,7 @@ body {
 
 #canvas{
     background-color: lightgray;
+    cursor: url(CrosshairPrecision.cur), default;
 }
 
 #controls{
