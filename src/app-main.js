@@ -17,7 +17,7 @@ let timer;
 
 // Audio variables
 let audioSelect = document.querySelector("#audio-select");
-let currentAudio = new Audio('./audio/laser.mp4');
+let currentAudio;
 let shotgunAudio = new Audio('./audio/shotgun.mp4');
 let laserAudio = new Audio('./audio/laser.mp4');
 let alakablamAudio = new Audio('./audio/alakablam.mp4');
@@ -29,7 +29,7 @@ let currentDifficulty;
 
 // Target Color Variables
 let colorSelect = document.querySelector("#color-select");
-let currentColor = "red";
+let currentColor;
 
 // Buttons
 let playButton = document.querySelector("#playBtn");
@@ -38,6 +38,7 @@ window.onload = init;
 function init() {
     //console.log("difficulty:", difficulty);
     canvas = document.querySelector('canvas');
+    loadJsonFetch();
 
     const resize = () => {
         canvas.width = window.innerWidth;
@@ -55,6 +56,33 @@ function init() {
     playButton.onclick = playGame;
     update();
 }
+
+function loadJsonFetch(){
+    const fetchPromise = async () => {
+      // await ("stay on this line") until the first promise is resolved, meaning the data has downloaded
+      let response = await fetch('./data/game-settings.json');
+
+      // If the response is not successful, throw an error
+      if(!response.ok){
+        if(reponse.status == 404) console.log("Do 404 stuff!");
+        throw new Error(`HTTP error! status: ${reponse.status}`);
+      }
+
+      // await ("stay on this line") until the second promise is resolved, meaning we now have a JSON object
+      let json = await response.json();
+      console.log(json);
+      currentColor = json.targetColor;
+      currentDifficulty = json.difficulty;
+      currentAudio = new Audio(`./${json.clickSound}`);
+    };
+
+    // call fetchPromise() and add a .catch() to it
+    // this works because fetchPromise() is async and thus returns a promise!
+    fetchPromise()
+    .catch(e=> {
+      console.log(`In catch with e = ${e}`);
+    });
+};
 
 function subtractFromTimer(){
     if(time != 0) time--;
