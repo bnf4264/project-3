@@ -5,7 +5,7 @@ template.innerHTML = `
     display: block;
 }
 p{
-    color: white;
+    color: black;
     text-align: center;
 }
 </style>

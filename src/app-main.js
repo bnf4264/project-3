@@ -1,7 +1,7 @@
 import Target from "./target.js";
 import { getMouse, getRandom, goFullscreen } from './utilities.js';
 
-let ctx;
+let ctx, analyserNode, audioData;
 let canvas;
 let newTargetX;
 let newTargetY;
