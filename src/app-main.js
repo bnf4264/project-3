@@ -6,11 +6,14 @@ let canvas;
 let newTargetX;
 let newTargetY;
 let currentTargetClicked = true;
-let targetsHit = 0;
+let targetsHit;
 let targetRadius = 30;
 let percentAccuracy;
-let totalClicks = 0;
+let totalClicks;
 let targets = [];
+let time = 60;
+let gameIsRunning = false;
+let timer;
 
 // Audio variables
 let audioSelect = document.querySelector("#audio-select");
@@ -27,6 +30,9 @@ let currentDifficulty;
 // Target Color Variables
 let colorSelect = document.querySelector("#color-select");
 let currentColor = "red";
+
+// Buttons
+let playButton = document.querySelector("#playBtn");
 
 window.onload = init;
 function init() {
@@ -45,7 +51,13 @@ function init() {
     canvas.onmousedown = doMousedown;
     ctx = canvas.getContext('2d');
     //setupUI(canvas);
+
+    playButton.onclick = playGame;
     update();
+}
+
+function subtractFromTimer(){
+    if(time != 0) time--;
 }
 
 function setupUI(canvas) {
@@ -58,6 +70,16 @@ function setupUI(canvas) {
     //     goFullscreen(canvas);
     //     console.log("Target X: " + newTargetX + " Target Y: " + newTargetY);
     // }
+}
+
+function playGame(){
+    window.scrollTo(0, document.body.scrollHeight);
+    window.clearInterval(timer);
+    time = 60;
+    targetsHit = 0;
+    totalClicks = 0;
+    gameIsRunning = true;
+    timer = window.setInterval(subtractFromTimer, 1000);
 }
 
 function update() {
@@ -77,20 +99,6 @@ function update() {
         }
     }
 
-    // Clear canvas
-    clearCanvas();
-
-    // Update target display
-    drawTargets();
-
-    // Update text display
-    ctx.font = '48px Serif';
-    ctx.fillText('Targets Hit: ' + targetsHit, 10, 50);
-    if(targetsHit == 0 && totalClicks > 0) ctx.fillText('Accuracy: ' + 0 + '%', 10, 90);
-    else if(targetsHit != 0) ctx.fillText('Accuracy: ' + Math.trunc(targetsHit / totalClicks * 100) + '%', 10, 90);
-    else ctx.fillText('Accuracy: ' + 100 + '%', 10, 90);
-    
-
     audioSelect.onchange = e => {
         //console.log(e.target.value);
         currentAudio = new Audio(`./${e.target.value}`);
@@ -98,6 +106,44 @@ function update() {
 
     colorSelect.onchange = e => {
         currentColor = e.target.value;
+    }
+
+    // Active game loop
+    if(gameIsRunning == true)
+    {
+        // Clear canvas
+        clearCanvas();
+
+        // Update target display
+        drawTargets();
+
+        // Update text display
+        ctx.font = '48px Serif';
+        ctx.fillText('Targets Hit: ' + targetsHit, 10, 50);
+        if(targetsHit == 0 && totalClicks > 0) ctx.fillText('Accuracy: ' + 0 + '%', 10, 100);
+        else if(targetsHit != 0) ctx.fillText('Accuracy: ' + Math.trunc(targetsHit / totalClicks * 100) + '%', 10, 100);
+        else ctx.fillText('Accuracy: ' + 100 + '%', 10, 100);
+        ctx.fillText('Timer: ' + time, 10, 150);
+
+        // Check if game has ended
+        if(time == 0)
+        {
+            gameIsRunning = false;
+        }
+    }
+
+    // End Game Screen
+    if(gameIsRunning == false && targetsHit)
+    {
+        // Clear canvas
+        clearCanvas();
+        ctx.font = '100px Serif';
+        ctx.fillStyle = 'red';
+        ctx.fillText('Game Over', canvas.width/2 - 250, canvas.height/2);
+        ctx.font = '60px Serif';
+        ctx.fillStyle = 'black';
+        ctx.fillText('Targets Hit: ' + targetsHit, canvas.width/2 - 250, canvas.height/2 + 100);
+        ctx.fillText('Accuracy: ' + Math.trunc(targetsHit / totalClicks * 100) + '%', canvas.width/2 - 250, canvas.height/2 + 200);
     }
 }
 
