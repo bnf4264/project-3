@@ -86,7 +86,9 @@ function update() {
     // Update text display
     ctx.font = '48px Serif';
     ctx.fillText('Targets Hit: ' + targetsHit, 10, 50);
-    ctx.fillText('Accuracy: ' + Math.trunc(targetsHit / totalClicks * 100) + '%', 10, 90);
+    if(targetsHit/totalClicks) ctx.fillText('Accuracy: ' + Math.trunc(targetsHit / totalClicks * 100) + '%', 10, 90);
+    else ctx.fillText('Accuracy: ' + 100 + '%', 10, 90);
+    
 
     audioSelect.onchange = e => {
         //console.log(e.target.value);
