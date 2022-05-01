@@ -32,68 +32,52 @@
 
     <!-- Product Info -->
 
-    <div class="hero is-info p-2">
+    <div class="hero" id="header">
         <div class="hero-head">
             <app-header class="title"></app-header>
-            <p class="subtitle">
-
-            </p>
+            <p class="subtitle"></p>
         </div>
-        <div class="columns is-vcentered">
-            <p style="word-wrap: break-word; margin-left: 20; margin-right: 20; margin-top: 20;">To Play: Click the red
-                dots as fast as you can, trying to keep up a consistent pace. If you click without clicking on a dot,
-                your accuracy will go down.</p>
-            <!-- <img src=""> put an image or a logo here? maybe? idek-->
-        </div>
-
-        <!-- <div  id="difficulty" class="control">
-            <label class="radio">
-                <input type="radio" name="answer">
-                Easy
-            </label>
-            <label class="radio">
-                <input type="radio" name="answer">
-                Medium
-            </label>
-            <label class="radio">
-                <input type="radio" name="answer">
-                Hard
-            </label>
-        </div> -->
-
-
-
-        <!-- <button id="fsButton">Full Screen</button> -->
+        <p style="word-wrap: break-word; margin-left: 20; margin-right: 20; margin-top: 20;">To Play: Click the red
+            dots as fast as you can, trying to keep up a consistent pace. If you click without clicking on a dot,
+            your accuracy will go down.</p>
     </div>
     <!-- end of hero -->
-    <p>Click Sound</p>
-    <div class="select is-normal">
-        <select id="audio-select">
-            <option value="audio/laser.mp4">Laser</option>
-            <option value="audio/alakablam.mp4">Alakablam</option>
-            <option value="audio/shotgun.mp4">Gun</option>
-        </select>
-    </div>
+    <div class="columns" id="controls">
+        <div class="column">
+            <p>Click Sound</p>
+            <div class="select is-normal">
+                <select id="audio-select">
+                    <option value="audio/laser.mp4">Laser</option>
+                    <option value="audio/alakablam.mp4">Alakablam</option>
+                    <option value="audio/shotgun.mp4">Gun</option>
+                </select>
+            </div>
+        </div>
 
-    <p>Difficulty</p>
-    <div class="select is-normal">
-        <select id="difficulty-select">
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-        </select>
-    </div>
+        <div class="column">
+            <p>Difficulty</p>
+            <div class="select is-normal">
+                <select id="difficulty-select">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+        </div>
 
-    <p>Target Color</p>
-    <div class="select is-normal">
-        <select id="color-select">
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
-            <option value="black">Black</option>
-            <option value="orange">Orange</option>
-            <option value="purple">Purple</option>
-        </select>
+        <div class="column">
+            <p>Target Color</p>
+            <div class="select is-normal">
+                <select id="color-select">
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="black">Black</option>
+                    <option value="orange">Orange</option>
+                    <option value="purple">Purple</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <canvas id="canvas" width="600" height="400">

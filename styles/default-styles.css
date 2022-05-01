@@ -14,36 +14,24 @@ body {
     font-family: 'Roboto Mono', monospace;
 }
 
-#poster{
-    max-width: 150px;
-}
-
-#test img{
-    padding-bottom: 30px;
-}
-
-#test p{
-    padding-bottom: 30px;
-}
-
-#doc-list h2{
-    padding-top: 25px;
-}
-
-#results{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
 #canvas{
     background-color: lightgray;
 }
 
-/* .input{
-    width: 20%;
+#controls{
+    background-color: rgb(194, 252, 255);
+    padding-left: 10rem;
+    padding-right: 10rem;
+    margin-bottom: 0rem;
 }
 
-.secondary-input{
-    padding-top: 1rem;
-} */
+#header{
+    background-color: rgb(194, 252, 255);
+}
+
+#crosshair-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
